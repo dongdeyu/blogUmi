@@ -1,6 +1,11 @@
 import React, { useEffect } from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Row, Col } from 'antd';
 const { Header, Content, Footer } = Layout;
+import {
+  MailOutlined,
+  AppstoreOutlined,
+  SettingOutlined,
+} from '@ant-design/icons';
 import styles from './index.less';
 const routes = require('../router');
 
@@ -13,11 +18,21 @@ const BasicLayout: React.FC = (props: any) => {
     <div className={styles.layout}>
       <Header>
         <div className="logo" />
-        <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']}>
-          <Menu.Item key="1">nav 1</Menu.Item>
-          <Menu.Item key="2">nav 2</Menu.Item>
-          <Menu.Item key="3">nav 3</Menu.Item>
-        </Menu>
+        <Row>
+          <Col flex="100px"></Col>
+          <Col flex="auto">
+            <Menu theme="light" mode="horizontal">
+              <Menu.Item key="1" icon={<MailOutlined />}>
+                首页
+              </Menu.Item>
+              <Menu.Item key="2">全部文章</Menu.Item>
+              <Menu.Item key="3">学无止境</Menu.Item>
+              <Menu.Item key="4">慢生活</Menu.Item>
+              <Menu.Item key="5">关于我的</Menu.Item>
+              <Menu.Item key="6">留言板</Menu.Item>
+            </Menu>
+          </Col>
+        </Row>
       </Header>
       <Content className="site-layout">
         <div className="site-layout-background" style={{ minHeight: 1200 }}>
